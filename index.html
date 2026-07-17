@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Free invoice and estimate generator for freelancers. Create professional PDF invoices and quotes in seconds — no signup, no watermarks, works offline.">
-<title>Invoice &amp; Estimate Generator — Free for Freelancers</title>
+<meta name="description" content="Free invoice, estimate & VAT-compliant billing generator for AI consultants and freelance developers. Client-side, no signup, print to PDF.">
+<title>FreelanceDesk — Invoicing &amp; Contracts for AI Consultants &amp; Devs</title>
 <style>
   :root{
     --bg:#0f172a; --panel:#1e293b; --accent:#38bdf8; --accent2:#22c55e;
@@ -54,6 +54,8 @@
   .pill{display:inline-block;background:#04210f;color:var(--accent2);border:1px solid var(--accent2);padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:700}
   .item-add{background:var(--accent);color:#04263a;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700;margin-top:8px}
   .item-del{background:transparent;border:none;color:var(--danger);cursor:pointer;font-size:1.1rem}
+  .check{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.9rem;color:var(--muted);text-transform:none}
+  .check input{width:auto}
 </style>
 </head>
 <body>
@@ -62,29 +64,29 @@
   <nav>
     <a href="#tool">Tool</a>
     <a href="#features">Why</a>
-    <a href="#products">Upgrades</a>
+    <a href="#products">Contracts</a>
     <a href="#blog">Blog</a>
   </nav>
 </header>
 
 <div class="wrap">
   <section class="hero" id="tool">
-    <h1>Free Invoice &amp; Estimate Generator</h1>
-    <p>Create clean, professional invoices and quotes in seconds. No signup. No watermarks. Your data never leaves your browser. Print to PDF and get paid.</p>
-    <span class="pill">100% FREE · NO ACCOUNT NEEDED</span>
+    <h1>Free Invoice &amp; Estimate Generator for AI Consultants &amp; Devs</h1>
+    <p>Milestone billing, VAT/reverse-charge support, and clean PDFs — built for freelancers who bill clients for technical &amp; AI work. No signup. No watermarks. Your data never leaves your browser.</p>
+    <span class="pill">100% FREE · NO ACCOUNT NEEDED · VAT-AWARE</span>
   </section>
 
   <div class="layout">
     <div class="card">
       <h2>1. Your Details</h2>
       <div class="row">
-        <div><label>Business Name</label><input id="fromName" value="Your Business LLC"></div>
+        <div><label>Business Name</label><input id="fromName" value="Your Consulting LLC"></div>
         <div><label>Email</label><input id="fromEmail" value="you@email.com"></div>
       </div>
       <label>Address</label><textarea id="fromAddr" rows="2">123 Main St, City, State</textarea>
       <div class="row">
         <div><label>Phone</label><input id="fromPhone" value="(555) 123-4567"></div>
-        <div><label>Tax ID</label><input id="fromTax" value=""></div>
+        <div><label>VAT / Tax ID</label><input id="fromTax" value=""></div>
       </div>
 
       <h2 style="margin-top:20px">2. Bill To</h2>
@@ -93,6 +95,7 @@
         <div><label>Client Email</label><input id="toEmail" value="client@acme.com"></div>
       </div>
       <label>Client Address</label><textarea id="toAddr" rows="2">456 Client Ave, Town, State</textarea>
+      <label>Client VAT / Tax ID</label><input id="toTax" value="">
 
       <h2 style="margin-top:20px">3. Document</h2>
       <div class="row">
@@ -100,6 +103,7 @@
           <select id="docType">
             <option value="Invoice">Invoice</option>
             <option value="Estimate">Estimate / Quote</option>
+            <option value="Milestone">Milestone Claim</option>
           </select>
         </div>
         <div><label>Number</label><input id="docNum" value="INV-0001"></div>
@@ -108,6 +112,7 @@
         <div><label>Issue Date</label><input id="issueDate" type="date"></div>
         <div><label>Due Date</label><input id="dueDate" type="date"></div>
       </div>
+      <label class="check"><input id="revCharge" type="checkbox"> Reverse charge (EU B2B — VAT handled by client)</label>
 
       <h2 style="margin-top:20px">4. Line Items</h2>
       <table id="items">
@@ -142,39 +147,36 @@
   </div>
 
   <section class="features" id="features">
-    <div class="feature"><h3>Zero friction</h3><p>No account, no email capture, no upsell wall. Open the page and invoice. That's why freelancers actually come back.</p></div>
-    <div class="feature"><h3>Private by design</h3><p>Everything runs in your browser with JavaScript. We never see your client data, and there's no server to leak it.</p></div>
-    <div class="feature"><h3>Print-ready PDF</h3><p>Use your browser's native "Save as PDF" for a clean, professional document — no sketchy third-party converters.</p></div>
+    <div class="feature"><h3>Milestone billing</h3><p>Bill by phase, not just hours. Use "Milestone Claim" to show % complete per deliverable — exactly how agencies and AI consultants get paid.</p></div>
+    <div class="feature"><h3>VAT / reverse-charge</h3><p>Add your VAT ID and the client's. Tick reverse-charge for EU B2B and the compliant note prints automatically. No more Googling the format.</p></div>
+    <div class="feature"><h3>Private by design</h3><p>Everything runs in your browser with JavaScript. Client data never touches a server. Print to PDF and send it yourself.</p></div>
   </section>
 
   <section class="upsell" id="products">
-    <h2>Want to look even more pro &amp; get paid faster?</h2>
-    <p>FreelanceDesk's free tool gets you paid. These battle-tested templates take the rest of the busywork off your plate — signed contracts, polished proposals, and a rate calculator that fights scope creep.</p>
+    <h2>Get the contracts that protect AI &amp; dev engagements</h2>
+    <p>The free tool bills the work. These templates protect it — IP assignment of AI outputs, data-processing clauses, liability caps, milestone terms, and reverse-charge wording that survived real client review.</p>
     <div class="actions" style="justify-content:center">
-      <a class="btn" id="gumroadLink" href="https://gumroad.com/" target="_blank" rel="noopener">Browse templates on Gumroad →</a>
+      <a class="btn" id="gumroadLink" href="https://velenski.gumroad.com/l/gdpdfx" target="_blank" rel="noopener">Get the AI &amp; Freelance Contract Pack →</a>
       <a class="btn secondary" href="#blog">Read the free guides</a>
     </div>
   </section>
 
   <section id="blog" style="margin-top:48px">
-    <h2 style="color:#fff">Free Guides</h2>
+    <h2 style="color:#fff">Free Guides for Consultants &amp; Devs</h2>
     <div id="blogList"></div>
   </section>
 </div>
 
 <footer>
-  FreelanceDesk — a free tool for independent workers. Built to be useful first, monetized honestly.
+  FreelanceDesk — free billing for independent technical workers. Built to be useful first, monetized honestly.
   <br>Your data stays in your browser. Nothing is uploaded.
 </footer>
 
 <script src="app.js"></script>
 <script>
-  // ---- CONFIG: set YOUR Gumroad product URL here ----
   const GUMROAD_URL = "https://velenski.gumroad.com/l/gdpdfx";
   document.getElementById('gumroadLink').href = GUMROAD_URL;
   document.querySelectorAll('a[href="https://gumroad.com/"]').forEach(a=>a.href=GUMROAD_URL);
-
-  // ---- render blog cards from blog/posts.json ----
   (async () => {
     try {
       const res = await fetch('blog/posts.json');
@@ -188,7 +190,7 @@
           <h3 style="margin:6px 0"><a href="blog/${p.slug}.html" style="color:#fff;text-decoration:none">${p.title}</a></h3>
           <p style="color:#94a3b8;margin:0">${p.excerpt}</p>
         </div>`).join('');
-    } catch(e) { /* file:// fallback: ignore */ }
+    } catch(e) { /* file:// fallback */ }
   })();
 </script>
 </body>
