@@ -1,0 +1,21 @@
+{
+  "docNum": "INV-0007",
+  "fromName": "Northwind Studio",
+  "fromEmail": "hello@northwind.studio",
+  "fromAddr": "9 Birch Lane\nBrooklyn, NY",
+  "fromPhone": "(212) 555-0142",
+  "fromTax": "US-EIN 88-1234567",
+  "toName": "Globex Corp",
+  "toEmail": "ap@globex.com",
+  "toAddr": "1 Globex Plaza\nRemote",
+  "docType": "Invoice",
+  "issueDate": "2026-07-17",
+  "dueDate": "2026-07-31",
+  "taxRate": "8.5",
+  "currency": "$ USD",
+  "notes": "Net 14. Late balances accrue 1.5%/mo. Thanks for the great project!",
+  "items": [
+    {"d":"Brand identity system","q":1,"r":2400},
+    {"d":"Landing page design","q":2,"r":850}
+  ]
+}
