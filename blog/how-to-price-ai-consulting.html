@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Practical pricing models and a token-buffer formula that keeps AI consulting profitable when API costs swing.">
+<title>How to Price AI Consulting Without Bleeding on Token Costs — FreelanceDesk</title>
+<style>
+ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.7}
+ header{padding:16px 24px;border-bottom:1px solid #334155;display:flex;justify-content:space-between;align-items:center}
+ .brand{font-weight:800;color:#fff} .brand span{color:#38bdf8}
+ header a{color:#94a3b8;text-decoration:none;font-size:.9rem}
+ main{max-width:720px;margin:0 auto;padding:32px 20px 80px}
+ h1{font-size:2rem;color:#fff;line-height:1.25} .meta{color:#94a3b8;font-size:.85rem;margin-bottom:24px}
+ article h2{color:#38bdf8;margin-top:36px;font-size:1.35rem} article h3{color:#fff}
+ a.cta{display:inline-block;background:#22c55e;color:#04210f;font-weight:700;padding:12px 20px;border-radius:10px;text-decoration:none;margin:18px 0}
+ code{background:#1e293b;padding:2px 6px;border-radius:5px} pre{background:#1e293b;padding:14px;border-radius:10px;overflow:auto}
+ ul,ol{padding-left:22px} li{margin:6px 0}
+ .pill{display:inline-block;background:#04210f;color:#22c55e;border:1px solid #22c55e;padding:3px 9px;border-radius:999px;font-size:.72rem;font-weight:700;margin-right:6px}
+</style></head><body>
+<header><div class="brand">Freelance<span>Desk</span></div><a href="/">← Free Invoice Tool</a></header>
+<main>
+<article>
+<h1>How to Price AI Consulting Without Bleeding on Token Costs</h1>
+<div class="meta">Published 2026-07-20 · 3 min read · <span class="pill">pricing</span> <span class="pill">ai-consulting</span></div>
+<h2>Why Token Costs Break Naive Pricing</h2>
+<p>When you sell "AI consulting," you are not just selling hours. You are also reselling compute — and compute is the one variable that traditional freelance pricing never taught you to handle. A fixed $5,000 build estimate that quietly burns $2,000 in API calls is not a margin problem; it is a pricing-model problem.</p>
+<p>The trap is thinking of tokens like coffee: a rounding error. They are not. One enthusiastic client who pastes 40-page PDFs into a chatbot ten times a day can multiply your inference bill by 10x without changing the "scope" on paper. If your quote does not account for that, you eat it.</p>
+
+<h2>The Three Models That Actually Work</h2>
+<p>There is no single right answer, but there are three structures that keep you solvent. Pick based on how predictable the workload is.</p>
+
+<h3>1. Fixed-Fee With a Token Buffer</h3>
+<p>You quote one number, but you build a conservative compute allowance into it — typically 8–15% of the fee for well-scoped work, more for R&amp;D-heavy builds. The client gets price certainty; you get a cushion. The catch: you must track real spend, or the buffer is a guess.</p>
+
+<h3>2. Pass-Through (Client Pays API Directly)</h3>
+<p>The cleanest option when volume is unknown. You wire the client's own API key into the build, or you invoice their usage monthly at cost plus a small admin fee (5–10%). They feel the metered cost, so they stop over-prompting, and your margin is decoupled from their curiosity.</p>
+
+<h3>3. Hybrid Retainer</h3>
+<p>A monthly fee covers your time plus a token allowance; anything above the allowance is billed at a pre-agreed per-1M-tokens rate. This is the most common structure for ongoing AI agents and copilots, because usage grows after launch, not before.</p>
+
+<h2>How to Estimate Token Spend Before You Quote</h2>
+<p>You do not need a crystal ball — you need one representative run. Build the feature, run it 20 times against real inputs, and capture the average tokens in and out. Then project:</p>
+<pre><code># rough monthly estimate
+avg_in  = 3_200    # input tokens per call
+avg_out = 900      # output tokens per call
+calls   = 4_000    # expected calls / month
+price   = {"in": 3.0, "out": 15.0}  # $ per 1M tokens
+
+monthly = (avg_in/1e6*price["in"] + avg_out/1e6*price["out"]) * calls
+# → ~ $64/month for this example; scale by model & volume
+</code></pre>
+<p>Multiply by your safety factor (1.5–3x for unknown clients) and you have a defensible number instead of a vibe.</p>
+
+<h2>A Simple Buffer Formula</h2>
+<p>For fixed-fee work, set your token buffer as a function of uncertainty, not a flat percentage:</p>
+<ul>
+  <li><strong>Known, repeated task</strong> (e.g. classified ticket routing): 10% buffer.</li>
+  <li><strong>Semi-known</strong> (document Q&amp;A over a stable corpus): 20% buffer.</li>
+  <li><strong>Exploratory</strong> (R&amp;D, agentic loops, long-context summaries): 40%+ or move to pass-through.</li>
+</ul>
+<p>If the buffer crosses 40%, that is your signal the workload is too unpredictable for fixed-fee — switch models, not numbers.</p>
+
+<h2>Contract Language That Protects You</h2>
+<p>Pricing only holds if the paperwork backs it. Two clauses matter most:</p>
+<ul>
+  <li><strong>Token allowance clause:</strong> "Fees include up to X API tokens per month. Usage beyond that is billed at cost plus 10%."</li>
+  <li><strong>Model-change clause:</strong> "Pricing assumes Model Y at launch rates. Material rate increases are passed through with 30 days' notice."</li>
+</ul>
+<p>Without these, a vendor price hike or a chatty client quietly converts your profit into a loss — and you have no paper trail to bill them for it.</p>
+
+<h2>The 5-Point Pricing Checklist</h2>
+<ol>
+  <li>Run 20 real inputs; capture avg in/out tokens.</li>
+  <li>Project monthly spend with a safety factor.</li>
+  <li>Pick a model: fixed+buffer, pass-through, or hybrid retainer.</li>
+  <li>Write the token allowance and model-change clauses into the contract.</li>
+  <li>Track live spend monthly; re-quote if usage drifts &gt;30% from estimate.</li>
+</ol>
+<p>Token costs are not a reason to avoid AI consulting — they are a reason to price it like the hybrid service it actually is. Get the structure right once and every future quote gets easier.</p>
+
+<hr style="border:none;border-top:1px solid #334155;margin:36px 0">
+<p><a class="cta" href="https://velenski.gumroad.com/l/gdpdfx" target="_blank" rel="noopener">Grab the Freelancer Starter Kit on Gumroad →</a></p>
+<p style="color:#94a3b8;font-size:.9rem">Liked this? The free <a href="/" style="color:#38bdf8">invoice &amp; estimate generator</a> covers the day-to-day. The kit covers the paperwork that protects you.</p>
+</article>
+<section style="margin-top:36px;background:#1e293b;border:1px solid #334155;border-radius:14px;padding:24px;text-align:center">
+  <h2 style="color:#fff;margin-top:0">Get the freelance paperwork cheat-sheet</h2>
+  <p style="color:#94a3b8">New guides + a free AI-consultant contract checklist, straight to your inbox. No spam.</p>
+  <form class="lead-form" style="max-width:460px;margin:14px auto 0;display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+    <input type="email" name="email" placeholder="you@consulting.com" required style="flex:1;min-width:220px;background:#0b1220;border:1px solid #334155;color:#e2e8f0;border-radius:8px;padding:10px">
+    <button type="submit" style="background:#22c55e;color:#04210f;font-weight:700;border:none;padding:12px 20px;border-radius:10px;cursor:pointer">Subscribe</button>
+  </form>
+  <div class="lead-msg" style="margin-top:10px;font-size:.85rem;color:#94a3b8"></div>
+</section>
+</main>
+<script src="../site-config.js"></script>
+<script src="../fd.js"></script>
+</body></html>
