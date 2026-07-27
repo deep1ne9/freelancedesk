@@ -1,5 +1,16 @@
 [
   {
+    "slug": "statement-of-work-ml-project",
+    "title": "The Statement of Work Template That Stops AI Scope Creep",
+    "date": "2026-07-27",
+    "excerpt": "An ML-specific SOW structure \u2014 data assumptions, iteration caps, and change control \u2014 that turns scope creep into billable change orders.",
+    "tags": [
+      "contracts",
+      "freelancing"
+    ],
+    "read": 4
+  },
+  {
     "slug": "how-to-price-ai-consulting",
     "title": "How to Price AI Consulting Without Bleeding on Token Costs",
     "date": "2026-07-20",
