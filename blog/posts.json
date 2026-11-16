@@ -1,5 +1,26 @@
 [
   {
+    "slug": "milestone-billing-ai-projects",
+    "title": "Milestone Billing for AI Projects: Get Paid as You Ship",
+    "date": "2026-11-16",
+    "excerpt": "Get paid as you ship: a practical milestone-billing system for AI projects, with clauses that stop scope creep and keep cash flow predictable.",
+    "tags": [
+      "invoicing"
+    ],
+    "read": 3
+  },
+  {
+    "slug": "land-first-ai-consulting-client",
+    "title": "How to Land Your First AI Consulting Client (DM Scripts Included)",
+    "date": "2026-09-28",
+    "excerpt": "A short, repeatable playbook for going from zero to your first AI consulting client \u2014 with DM scripts and a PoC checklist.",
+    "tags": [
+      "growth",
+      "ai-consulting"
+    ],
+    "read": 4
+  },
+  {
     "slug": "liability-cap-ai-consulting",
     "title": "Why Your AI Consulting Contract Needs a Liability Cap (and What to Set)",
     "date": "2026-08-10",
